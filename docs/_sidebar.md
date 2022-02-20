@@ -1,5 +1,8 @@
 - JS基础知识
   - [概念汇总](JS基础知识/概念汇总.md)
+  - [ 执行上下文](JS基础知识/执行上下文.md)
+  - [词法环境](JS基础知识/词法环境.md)
+  - [闭包](JS基础知识/闭包.md)
 - React
   - [React Hooks闭包陷阱](React/React-Hooks闭包陷阱.md)
   - [React底层原理](React/React底层原理.md)
