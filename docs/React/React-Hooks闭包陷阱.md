@@ -53,6 +53,9 @@ LexicalEnvironment = {
 顺着这条链条查上去，会发现count = 0。
 这里要特别注意一下，虽然WatchCount被多次调用，但是因为useEffect只在第一次的时候被调用，所以setTimeout里的log函数的外部词法环境，永远引用那个时候创建的词法环境。
 
+## 更通俗的理解
+每次调用WatchCount都会形成一个闭包，因为useEffect只会在第一次调用，所以他的内部只能获取到第一个闭包里的count的值。第一个闭包的count是0，所以最后输出的是0。
+
 
 ## 如何打印出最新的count值呢？
 这个时候需要使用useRef。
@@ -86,3 +89,4 @@ function WatchCount() {
 Reference: 
 1. [简单聊一聊 hooks 与闭包](https://zhuanlan.zhihu.com/p/95947450?utm_source=wechat_timeline&utm_medium=social&utm_oi=69668794531840&utm_campaign=shareopn)
 2. https://dmitripavlutin.com/react-hooks-stale-closures/
+3. [useEffect的全部指南 - Dan](https://overreacted.io/a-complete-guide-to-useeffect/)
