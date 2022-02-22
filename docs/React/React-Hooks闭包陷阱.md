@@ -59,14 +59,18 @@ LexicalEnvironment = {
 
 ## 如何打印出最新的count值呢？
 这个时候需要使用useRef。
-useRef里的current属性，永远指向count的最新值。
-可以这样来理解，useState在WatchCount的外部创建了一个count变量，useRef在外部创建了一个对象，每次获取这个对象的current属性，都会返回count最新的值。[??实现细节需要梳理一下]
+#### useRef官方定义
+> useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.  
+
+useRef返回的是挂载在当前ReactNode的memoizedState对象。ref.current可以获取到这个对象里的值。  
+可以这样来理解，useState在WatchCount的外部创建了一个count变量，useRef在外部创建了一个对象，每次获取这个对象的current属性，都会返回count最新的值。
 修改后的代码如下所示：
 
 ```
 function WatchCount() {
   const [count, setCount] = useState(0);
   const countRef = useRef(count);
+  countRef.current = count;
 
   useEffect(function () {
     setTimeout(function log() {
