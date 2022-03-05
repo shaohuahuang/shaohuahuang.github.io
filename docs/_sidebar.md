@@ -20,4 +20,5 @@
   - [z-index](CSS基础知识/z-index.md)
   - [BFC](CSS基础知识/BFC.md)
   - [水平垂直居中](CSS基础知识/水平垂直居中.md)
+  - [CSS动画](CSS基础知识/CSS动画.md)
 
