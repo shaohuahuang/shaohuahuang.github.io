@@ -4,6 +4,7 @@
   - [词法环境](JS基础知识/词法环境.md)
   - [闭包](JS基础知识/闭包.md)
   - [JS模块化](JS基础知识/JS模块化.md)
+  - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
 - React
   - [React Hooks闭包陷阱](React/React-Hooks闭包陷阱.md)
   - [useState+useEffect的简单实现](React/useState+useEffect的简单实现.md)
