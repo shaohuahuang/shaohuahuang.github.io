@@ -2,7 +2,7 @@
   - [概念汇总](JS基础知识/概念汇总.md)
   - [ 执行上下文](JS基础知识/执行上下文.md)
   - [词法环境](JS基础知识/词法环境.md)
-  - [闭包](JS基础知识/闭包.md)
+  <!-- - [闭包](JS基础知识/闭包.md) -->
   - [JS模块化](JS基础知识/JS模块化.md)
   - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
 - React
@@ -10,8 +10,8 @@
   - [useState+useEffect的简单实现](React/useState+useEffect的简单实现.md)
   - [React重新渲染](React/React重新渲染.md)
 
-  - React源码赏析
-    - [useRef的源码解读](React/React源码赏析/useRef的源码解读.md)
+  <!-- - React源码赏析
+    - [useRef的源码解读](React/React源码赏析/useRef的源码解读.md) -->
 - Webpack
   - [如何提高构建效率](Webpack/如何提高构建效率.md)
 - 浏览器相关知识
