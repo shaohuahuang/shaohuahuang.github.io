@@ -23,4 +23,7 @@
   - [水平垂直居中](CSS基础知识/水平垂直居中.md)
   - [CSS动画](CSS基础知识/CSS动画.md)
   - [viewport](CSS基础知识/viewport.md)
+- 算法试炼
+  - BFS + DFS
+    - [排列组合](算法试炼/BFS+DFS/排列组合.md)
 
