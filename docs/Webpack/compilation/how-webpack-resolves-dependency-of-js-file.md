@@ -166,6 +166,14 @@ parser.hooks.import.tap(
 
 **至此我们终于知道入口文件的依赖是如何被如何一步步被webpack解析出来了**
 
+
+
+### 总结
+从文件路径到最后把依赖分析出来，主要经过3个过程
+第一步： factorizeModule, 这一步会创建出一个新的module实例，并且把实例里的parser等信息都准备好
+第二步:  addModule, 这一步会把模块添加到moudleCache里面
+第三部:  buildMoudle, 这一步会通过parser把module的依赖分析出来
+
 ### Reference
 
 - Module相关的UML类图
