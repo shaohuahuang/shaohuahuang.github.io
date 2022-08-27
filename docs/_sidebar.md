@@ -16,7 +16,8 @@
   - [如何提高构建效率](Webpack/如何提高构建效率.md)
   - [Tapable](Webpack/Tapable.md.md)
   - 构建流程源码分析
-    - [一个js文件的依赖是如何被解析出来的?](Webpack/compilation/how-webpack-resolves-dependency-of-js-file.md)
+    - [一个js文件的依赖是如何被解析出来的?](Webpack/compilation/how-webpack-resolves-dependency-of-entry-js-file.md)
+    - [模块依赖关系图是如何构建出来的?](Webpack/compilation/how-module-graph-created.md)
 - 浏览器相关知识
   - [浏览器缓存](浏览器相关知识/浏览器缓存.md)
   - [输入一个url背后发生了什么](浏览器相关知识/输入一个url背后发生了什么.md)
