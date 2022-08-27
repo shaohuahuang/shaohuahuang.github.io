@@ -2,7 +2,7 @@
 
 ### 前言
 最近在仔细的研究Webpack源码，因为是第一次研究，所以希望从最基本的开始。  
-我们都知道webpack打包的流程是根据入口js文件，通过BFS遍历分析出所有的依赖关系，然后通过loader转化代买，最后打包并聚合成最终的bundle文件。  
+我们都知道webpack打包的流程是根据入口js文件，通过BFS遍历分析出所有的依赖关系，然后通过loader转译代码，最后打包并聚合成最终的bundle文件。  
 这篇文章想要结合源码分析，webpack是如何根据入口文件，找出他的依赖的。
 这个乍看起来似乎很简单，但是由于webpack的插件太多了，源码阅读起来非常困难，我也是花了九牛二虎之力，才理解了整个过程。
 
@@ -15,7 +15,7 @@
 
 
 ### 解析过程
-我们整理跳过前期的webpack准备工作，直接从compilation.addEntry这个函数开始，一步步看webpack是如何工作的。
+我们这里跳过前期的webpack准备工作，直接从compilation.addEntry这个函数开始，一步步看webpack是如何工作的。
 
 addEntry -> _addEntryItem -> addModuleTree
 ```
@@ -65,7 +65,7 @@ apply(compiler) {
 由此可见moudleFactory其实就是指的normalMoudleFactory. 
 
 我们继续看接下来的流程
-addModuleTree -> handleModuleCreation -> factorizeModule
+addEntry -> _addEntryItem -> addModuleTree -> handleModuleCreation -> factorizeModule
 这里会把入口文件塞入到factorizeQueue里面
 ```
 this.factorizeQueue = new AsyncQueue({
@@ -76,13 +76,95 @@ this.factorizeQueue = new AsyncQueue({
 ```
 factorizeQueue里面定义了一个processor，这个prorcessor每次有元素加到queue里面都会执行
 所以我们接下来来看_factorizeModule里面的逻辑
+在这个函数里面会调用factory.create方法，这里的factory就是NormalModuleFactory
+```
+create(data, callback){
+  this.hooks.beforeResolve.callAsync(resolveData, (err, result) => {
+    //...
+    this.hooks.factorize.callAsync(resolveData, (err, result) => {
+      // ...
+    }
+  }
+}
+```
+这里总共触发了normalMoudleFactory两个钩子beforeResolve和factorize  
+我们需要看看这两个钩子之前有没有注册函数，全局搜索一下，我们发现factorize这个钩子在constructor里面注册了函数的，然后这个函数里面又触发了resolve这个钩子  
+**至此我们正式进入resolve文件依赖的阶段。**
+
+在resolve钩子函数里，会去执行defaultResolve -> resolveResource -> continueCallback -> resolveRequestArray -> continueCallback 
+```
+Object.assign(data.createData, {
+  //...
+  parser: this.getParser(type, settings.parser),
+  //...
+});
+```
+**在这里我们获得了JavascriptParser**
+
+这个会程序执行会回调到之前this.hooks.resolve.callAsync里的callback函数，先触发afterResolve这个钩子，然后触发createModule这个钩子
+```
+createdModule = new NormalModule(
+    /** @type {NormalModuleCreateData} */ (createData)
+  );
+}
+
+createdModule = this.hooks.module.call(
+  createdModule,
+  createData,
+  resolveData
+);
+```
+创建了NormalModule实例后，回调到Compilaiton里的factory.create的callback函数里面，再回调到_factorizeModule的callback, 再回调到addModule的callback, 
+执行_handleModuleBuildAndDependencies -> this.buildModule -> this._buildModule
+
+继续执行NormalModule.build -> _doBuild 
+```
+try {
+  const source = this._source.source();
+  result = this.parser.parse(this._ast || source, {
+    source,
+    current: this,
+    module: this,
+    compilation: compilation,
+    options: options
+  });
+} catch (e) {
+  handleParseError(e);
+  return;
+}
+handleParseResult(result);
+```
+
+**这里我们终于看到了把源码转成ast的地方**
+我们知道parser是有钩子的，所以webpack其实在执行到这里执之前，已经把HarmonyImportDependencyParserPlugin的钩子注册好了。在解析到import语句的时候，webpack会把依赖写到parser.state.module的依赖中，这里的module就是我们上边创建的NormalModule. 如下所示：
+```
+parser.hooks.import.tap(
+  "HarmonyImportDependencyParserPlugin",
+  (statement, source) => {
+    parser.state.lastHarmonyImportOrder =
+      (parser.state.lastHarmonyImportOrder || 0) + 1;
+    const clearDep = new ConstDependency(
+      parser.isAsiPosition(statement.range[0]) ? ";" : "",
+      statement.range
+    );
+    clearDep.loc = statement.loc;
+    parser.state.module.addPresentationalDependency(clearDep);
+    parser.unsetAsiPosition(statement.range[1]);
+    const assertions = getAssertions(statement);
+    const sideEffectDep = new HarmonyImportSideEffectDependency(
+      source,
+      parser.state.lastHarmonyImportOrder,
+      assertions
+    );
+    sideEffectDep.loc = statement.loc;
+    parser.state.module.addDependency(sideEffectDep);
+    return true;
+  }
+);
+```
 
 
-
-
-
-
-
+**至此我们终于知道入口文件的依赖是如何被如何一步步被webpack解析出来了**
 
 ### Reference
 
