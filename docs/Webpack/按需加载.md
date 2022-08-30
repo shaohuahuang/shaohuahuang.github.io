@@ -247,3 +247,15 @@ chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.pus
 这里的代码有点乱，但是实际上做的就一件事情，chunk文件加载完成后执行代码的时候，先resolve对应的promise，然后会把installedChunks里面对应的值为0。
 
 
+研究完所有的代码，我们再来看一开始我们提出的问题：
+1. 如果脚本已经下载完成过了，再遇到按需加载该脚本的地方，应当从缓存中取出结果，无需再下载
+如果已经完成下载，那么installledChunks里面对应的值为0，__webpack_require__.f.l里的加载逻辑不会被执行
+
+2. 如果脚本正在下载过程中，再遇到按需加载该脚本的地方, 应当监听该脚本的下载结果, 不应该再次发起脚本请求
+如果脚本正在下载，那么在下载过程中同时发起的多个请求，都会使用installledChunks里面的同一个Promise，不会每次创建新的Promise。这个Promise会在加载这个chunk完成的时候被resolve
+
+
+
+
+
+
