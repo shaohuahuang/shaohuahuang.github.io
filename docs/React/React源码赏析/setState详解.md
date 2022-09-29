@@ -272,7 +272,10 @@ export function scheduleUpdateOnFiber(
 
 如果我们的渲染是调用的ReactDOM.render，那么这时的lane就是SyncLane。如果我们调用的是createRoot，那么此时使用了React 18推出的并发模式。
 
-在非并发模式下，如果setState是在setTimeout或者原生DOM的listener中调用，这个context会被React标记为LegacyUnbatchedContext，所以我们这个时候会出现同步执行的情况。  
+在非并发模式下，分为两种情况：
+- 在组件生命周期或React合成事件中，setState是异步；
+- 在setTimeout或者原生dom事件中，这个context会被React标记为LegacyUnbatchedContext, setState是同步； 
+
 而如果是并发模式，setState则全部为异步执行。
 
 
