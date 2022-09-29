@@ -203,3 +203,10 @@ function useState(initialState){
   return hook
 }
 ```
+
+### 总结
+- 函数组件执行的时候分为mount阶段和updae阶段，不同的阶段useState的逻辑是不一样的。 mount阶段，执行的是HooksDispatcherOnMount里定义的mountState函数。update阶段，执行的是HooksDispatcherOnUpdate里定义的updateState函数
+
+- 函数组件里的多个useState调用，每次调用都会创建出一个hook节点，这些节点形成一个环状链表。每个节点里面有memoizedState字段和queue字段。memoizedState用于存放hook对应的状态值，queue则会存放这个hook的所有update, 即调用setX函数所触发的更新
+
+- 当前Fiber节点的memoizedState，指向hook链表的头节点。这个与类组件是不太一样的，类组件的memoizedState存的是组件的state值
