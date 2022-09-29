@@ -11,6 +11,7 @@
   - [React重新渲染](React/React重新渲染.md)
   - React源码赏析
     - [jsx详解](React/React源码赏析/jsx详解.md)
+    - [setState详解](React/React源码赏析/setState详解.md)
     - [并发模式是如何工作的](React/React源码赏析/并发模式是如何工作的.md)
 
   <!-- - React源码赏析
