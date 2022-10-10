@@ -28,6 +28,5 @@ map.set(null, 2);
 // TypeError: Invalid value used as weak map key
 ```
 
-
 #### 一个比较适合的应用场景
 在做对象的深拷贝的时候，我们需要检查循环引用的问题。这个时候我们可以把已经复制的对象存到WeakMap中，对于已经完成拷贝的对象，直接从WeakMap中把值取出。等到深拷贝完成时，如果我们销毁被拷贝的对象，那么这个WeakMap中的内容就会被全部回收。

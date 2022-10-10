@@ -7,6 +7,14 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+
+  <!-- 文件夹样式 | 侧边栏
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+  -->
+  <!-- 箭头样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> 
+
 </head>
 <body>
   <div id="app"></div>
@@ -14,14 +22,23 @@
     window.$docsify = {
       name: '',
       repo: '',
-      search: 'auto',
 
       loadSidebar: true,
       // subMaxLevel: 2,
-      // sidebarDisplayLevel: 1,
+      sidebarDisplayLevel: 1,
 
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      // 搜索配置
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '找不到结果',
+        depth: 4,
+        hideOtherSidebarContent: false,
+        namespace: '非武的零食橱'
       },
 
       count:{
@@ -31,7 +48,21 @@
         language:'chinese'
       },
 
+      // 分页导航插件
+      pagination: {
+          previousText: '上一篇',
+          nextText: '下一篇',
+          crossChapter: true,
+          crossChapterText: true
+      },
+
       auto2top: true,
+
+      toc: {    
+        scope: '.markdown-section',    
+        headings: 'h1, h2, h3, h4, h5, h6',    
+        title: 'Table of Contents',  
+      },
     }
   </script>
   <!-- Docsify v4 -->
@@ -42,11 +73,13 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  
   <!-- 折叠sidebar -->
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
 
   <!-- GitTalk -->
+  <!--
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
@@ -61,5 +94,22 @@
       distractionFreeMode: false
     })
   </script>
+  -->
+
+  <!-- 目录跳转docsify-toc -->
+  <!--
+  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+  <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+  -->
 </body>
+
+<footer>
+
+<style type="text/css">
+.sidebar-nav {
+  padding-left: 5px;
+}
+</style>
+
+</footer>
 </html>
