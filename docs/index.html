@@ -63,6 +63,21 @@
         headings: 'h1, h2, h3, h4, h5, h6',    
         title: 'Table of Contents',  
       },
+
+      timeUpdater: {
+        text: `<hr>
+          <div align='center' width='200px' style='color:gray;font-size:14px'>
+            -------------- 最后更新时间:&emsp;{docsify-updated} --------------
+          </div>`,
+        formatUpdated: "{YYYY}/{MM}/{DD}",
+        whereToPlace: "bottom",  // "top" or "bottom", default to "bottom"
+      },  
+
+      copyCode: {
+        buttonText : '复制',
+        errorText  : 'Error',
+        successText: '复制成功'
+      }
     }
   </script>
   <!-- Docsify v4 -->
@@ -101,6 +116,11 @@
   <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
   <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
   -->
+
+  <script src="//unpkg.com/@zhg-x/docsify-plugins@1.0.2/src/scroll-to-top.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+  
 </body>
 
 <footer>
