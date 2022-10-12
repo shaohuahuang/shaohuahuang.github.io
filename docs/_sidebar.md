@@ -5,6 +5,7 @@
   <!-- - [闭包](JS基础知识/闭包.md) -->
   - [JS模块化](JS基础知识/JS模块化.md)
   - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
+  - [一文搞懂defineProperty和Proxy](JS基础知识/一文搞懂defineProperty和Proxy.md)
 - React
   - [React Hooks闭包陷阱](React/React-Hooks闭包陷阱.md)
   - [useState+useEffect的简单实现](React/useState+useEffect的简单实现.md)
