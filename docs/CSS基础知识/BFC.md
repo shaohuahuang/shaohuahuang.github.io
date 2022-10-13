@@ -22,7 +22,7 @@
 
 ### 几个例子
 
-1. 布局规则3的运用
+#### 1. 布局规则3的运用
 ```css
 <style>
     .wrapper {
@@ -72,7 +72,7 @@
     <div class="main"></div>
 </div>  
 
-2. 规则4的运用
+#### 2. 规则4的运用
 假如我们想让上面的main和aside box不重叠，我们把main变成BFC box， 如下所示
 ```css
 <style>
@@ -126,7 +126,7 @@
     <div class="main2"></div>
 </div>
 
-3. 规则6的运用，清楚内部浮动
+#### 3. 规则6的运用，清楚内部浮动
 
 ```css
 <style>
