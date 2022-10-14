@@ -119,3 +119,6 @@ function searchItems(event) {
 [axios 请求拦截器&响应拦截器](https://juejin.cn/post/7100470316857557006)
 
 [Abortcontroller and Axios cancel token](https://03balogun.medium.com/practical-use-case-of-the-abortcontroller-and-axios-cancel-token-7c75bf85f3ea)
+
+
+[用了这么久的CancelToken，Axios竟推荐用AbortController取而代之](https://juejin.cn/post/7134326391977279501)
