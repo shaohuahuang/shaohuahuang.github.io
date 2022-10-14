@@ -38,4 +38,5 @@
     - [排列组合](算法试炼/BFS+DFS/排列组合.md)
 - 杂项
   - [npm | yarn | pnpm](杂项/npm-yarn-pnpm.md)
+  - [axios拦截器和请求取消](杂项/axios拦截器和请求取消.md)
 
