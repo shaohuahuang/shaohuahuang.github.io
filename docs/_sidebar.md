@@ -39,4 +39,5 @@
 - 杂项
   - [npm | yarn | pnpm](杂项/npm-yarn-pnpm.md)
   - [axios拦截器和请求取消](杂项/axios拦截器和请求取消.md)
+  - [用了这么久的CancelToken，Axios竟推荐用AbortController取而代之](https://juejin.cn/post/7134326391977279501)
 
