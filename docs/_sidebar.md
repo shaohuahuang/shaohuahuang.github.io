@@ -30,6 +30,7 @@
 - 前端性能优化
   - [网页性能指标简介](前端性能优化/网页性能指标简介.md)
   - [页面可交互时间-TTI](前端性能优化/页面可交互时间-TTI.md)
+  - [link里的preload属性简单介绍](前端性能优化/preload.md)
 - CSS基础知识
   - [z-index](CSS基础知识/z-index.md)
   - [BFC](CSS基础知识/BFC.md)
