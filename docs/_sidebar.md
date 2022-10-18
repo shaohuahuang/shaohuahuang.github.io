@@ -1,11 +1,3 @@
-- JS基础知识
-  - [概念汇总](JS基础知识/概念汇总.md)
-  - [ 执行上下文](JS基础知识/执行上下文.md)
-  - [词法环境](JS基础知识/词法环境.md)
-  <!-- - [闭包](JS基础知识/闭包.md) -->
-  - [JS模块化](JS基础知识/JS模块化.md)
-  - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
-  - [一文搞懂defineProperty和Proxy](JS基础知识/一文搞懂defineProperty和Proxy.md)
 - React
   - [React Hooks闭包陷阱](React/React-Hooks闭包陷阱.md)
   - [useState+useEffect的简单实现](React/useState+useEffect的简单实现.md)
@@ -27,11 +19,20 @@
 - 浏览器相关知识
   - [浏览器缓存](浏览器相关知识/浏览器缓存.md)
   - [输入一个url背后发生了什么](浏览器相关知识/输入一个url背后发生了什么.md)
+  - [CORS详解](浏览器相关知识/cors详解.md)
 - 前端性能优化
   - [网页性能指标简介](前端性能优化/网页性能指标简介.md)
   - [页面可交互时间-TTI](前端性能优化/页面可交互时间-TTI.md)
   - [link里的preload属性简单介绍](前端性能优化/preload.md)
   - [Web SPA应用首屏优化](前端性能优化/Web-SPA应用首屏优化.md)
+- JS基础知识
+  - [概念汇总](JS基础知识/概念汇总.md)
+  - [ 执行上下文](JS基础知识/执行上下文.md)
+  - [词法环境](JS基础知识/词法环境.md)
+  <!-- - [闭包](JS基础知识/闭包.md) -->
+  - [JS模块化](JS基础知识/JS模块化.md)
+  - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
+  - [一文搞懂defineProperty和Proxy](JS基础知识/一文搞懂defineProperty和Proxy.md)
 - CSS基础知识
   - [z-index](CSS基础知识/z-index.md)
   - [BFC](CSS基础知识/BFC.md)
