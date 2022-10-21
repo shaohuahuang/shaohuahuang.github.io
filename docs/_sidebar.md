@@ -43,7 +43,7 @@
   - [viewport](CSS基础知识/viewport.md)
 - 网络基础知识
   - [DNS知识概览](网络基础知识/DNS知识概览.md)
-  - [CDN的工作原理](网络基础知识/CDN的工作原理.md)
+  - [CDN的工作原理介绍](网络基础知识/CDN的工作原理介绍.md)
 - 算法试炼
   - BFS + DFS
     - [排列组合](算法试炼/BFS+DFS/排列组合.md)
