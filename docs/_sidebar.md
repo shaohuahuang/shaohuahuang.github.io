@@ -46,6 +46,8 @@
   - [CDN的工作原理介绍](网络基础知识/CDN的工作原理介绍.md)
 - Node
   - [Node里面的EventLoop](Node/Node里面的EventLoop.md)
+- Typescript
+  - [type和interface的异同](Typescript/type和interface的异同.md)
 - 算法试炼
   - BFS + DFS
     - [排列组合](算法试炼/BFS+DFS/排列组合.md)
