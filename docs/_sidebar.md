@@ -48,6 +48,7 @@
   - [Node里面的EventLoop](Node/Node里面的EventLoop.md)
 - Typescript
   - [type和interface的异同](Typescript/type和interface的异同.md)
+  - [泛型详解](Typescript/泛型详解.md)
 - 算法试炼
   - BFS + DFS
     - [排列组合](算法试炼/BFS+DFS/排列组合.md)
