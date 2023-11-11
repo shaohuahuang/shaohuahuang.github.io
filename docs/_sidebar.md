@@ -29,8 +29,9 @@
   - [Web SPA应用首屏优化](前端性能优化/Web-SPA应用首屏优化.md)
 - JS基础知识
   - [概念汇总](JS基础知识/概念汇总.md)
-  - [ 执行上下文](JS基础知识/执行上下文.md)
+  - [执行上下文](JS基础知识/执行上下文.md)
   - [词法环境](JS基础知识/词法环境.md)
+  - [事件冒泡](JS基础知识/事件冒泡.md)
   <!-- - [闭包](JS基础知识/闭包.md) -->
   - [JS模块化](JS基础知识/JS模块化.md)
   - [Map+WeakMap](JS基础知识/Map+WeakMap.md)
@@ -42,7 +43,7 @@
   - [CSS动画](CSS基础知识/CSS动画.md)
   - [viewport](CSS基础知识/viewport.md)
 - 网络基础知识
-  - [HTTP1/HTTP2/HTTP3](网络基础知识/HTTP协议.md)
+  - [HTTP1/HTTP2](网络基础知识/HTTP协议.md)
   - [DNS知识概览](网络基础知识/DNS知识概览.md)
   - [CDN的工作原理介绍](网络基础知识/CDN的工作原理介绍.md)
 - Node
